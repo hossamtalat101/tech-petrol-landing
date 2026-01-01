@@ -1,41 +1,44 @@
-/* Variables for consistent colors */
 :root {
-  --primary-petrol: #004d40; /* Petrol Color */
-  --accent-gold: #d4af37; /* Gold Color */
+  --primary: #004d40;
+  --primary-dark: #00251a;
+  --accent: #d4af37;
+  --accent-hover: #b8962d;
   --white: #ffffff;
-  --light-gray: #f4f4f4;
-  --text-dark: #333333;
+  --text-main: #2d3436;
+  --text-light: #636e72;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 
 body {
-  line-height: 1.6;
-  color: var(--text-dark);
-  background-color: var(--white);
+  line-height: 1.8;
+  color: var(--text-main);
+  background-color: #fafafa;
+  overflow-x: hidden;
 }
 
-/* Layout Utilities */
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-/* Header Styling */
+/* الهيدر المتطور */
 .main-header {
-  background-color: var(--primary-petrol);
+  background-color: rgba(0, 77, 64, 0.95);
+  backdrop-filter: blur(10px); /* تأثير الزجاج */
   padding: 1rem 0;
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid var(--accent);
 }
 
 .main-header .container {
@@ -45,75 +48,154 @@ body {
 }
 
 .logo {
-  color: var(--accent-gold);
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 20px;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
 }
 
 .nav-links a {
   color: var(--white);
   text-decoration: none;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 0.95rem;
 }
 
 .nav-links a:hover {
-  color: var(--accent-gold);
+  color: var(--accent);
 }
 
 .cta-btn {
-  background-color: var(--accent-gold);
-  color: var(--primary-petrol);
+  background-color: var(--accent);
+  color: var(--primary-dark);
   border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
+  padding: 10px 24px;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
-/* Hero Section */
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  background-color: var(--accent-hover);
+}
+
+/* قسم الهيرو */
 .hero {
-  background: linear-gradient(135deg, var(--primary-petrol) 0%, #00251a 100%);
-  color: var(--white);
-  padding: 100px 0;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 37, 26, 0.8), rgba(0, 37, 26, 0.8)),
+    url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920")
+      center/cover;
+  display: flex;
+  align-items: center;
   text-align: center;
+  color: var(--white);
+  padding-top: 80px;
 }
 
 .hero h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
-.hero span {
-  color: var(--accent-gold);
+.hero h2 span {
+  color: var(--accent);
+  display: block;
 }
 
 .hero p {
   font-size: 1.2rem;
-  margin-bottom: 30px;
+  max-width: 700px;
+  margin: 0 auto 40px;
   opacity: 0.9;
 }
 
 .btn-primary {
-  background-color: var(--accent-gold);
-  color: var(--primary-petrol);
+  background-color: var(--accent);
+  color: var(--primary-dark);
   text-decoration: none;
-  padding: 12px 30px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-weight: 700;
   display: inline-block;
+  transition: var(--transition);
 }
 
-/* Footer */
-footer {
-  background-color: #00332a;
-  color: var(--white);
+.btn-primary:hover {
+  transform: scale(1.05);
+  background-color: var(--white);
+}
+
+/* قسم الخدمات (إضافة جديدة) */
+.services {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.section-title {
   text-align: center;
-  padding: 20px 0;
-  margin-top: auto;
+  margin-bottom: 60px;
+}
+
+.section-title h3 {
+  font-size: 2.5rem;
+  color: var(--primary);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  padding: 40px;
+  background: #fdfdfd;
+  border-radius: 15px;
+  border-bottom: 4px solid var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+/* التذييل */
+footer {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  padding: 40px 0;
+  text-align: center;
+  border-top: 4px solid var(--accent);
+}
+
+/* تحسينات الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* يفضل هنا إضافة قائمة هامبرغر برمجياً */
+  }
+
+  .hero {
+    height: auto;
+    padding: 150px 0 100px;
+  }
+
+  .hero h2 {
+    font-size: 2.5rem;
+  }
 }
