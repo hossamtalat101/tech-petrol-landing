@@ -1,0 +1,119 @@
+/* Variables for consistent colors */
+:root {
+  --primary-petrol: #004d40; /* Petrol Color */
+  --accent-gold: #d4af37; /* Gold Color */
+  --white: #ffffff;
+  --light-gray: #f4f4f4;
+  --text-dark: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+/* Layout Utilities */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styling */
+.main-header {
+  background-color: var(--primary-petrol);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--accent-gold);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--accent-gold);
+}
+
+.cta-btn {
+  background-color: var(--accent-gold);
+  color: var(--primary-petrol);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--primary-petrol) 0%, #00251a 100%);
+  color: var(--white);
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero span {
+  color: var(--accent-gold);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.btn-primary {
+  background-color: var(--accent-gold);
+  color: var(--primary-petrol);
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Footer */
+footer {
+  background-color: #00332a;
+  color: var(--white);
+  text-align: center;
+  padding: 20px 0;
+  margin-top: auto;
+}
